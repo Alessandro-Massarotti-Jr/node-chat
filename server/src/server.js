@@ -21,10 +21,11 @@ app.use(routes);
 
 io.on("connection", (socket) => {
     console.log(`socket conectado: ${socket.id}`);
-    console.log("ola");
-    socket.on('SendMessage',message=>{
-        console.log('menssagem recebida '+message)
-        socket.emit('sendOld','ola do server')
+
+    socket.on('SendMessage',data=>{
+        console.log(`user: ${data.user} message: ${data.message}`)
+        socket.broadcast.emit('sendmessage','User: '+data.user+' Message: '+data.message+' ')
+        socket.emit('sendmessage','User: '+data.user+' Message: '+data.message+' ')
     })
    
 });
