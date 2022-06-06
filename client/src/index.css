@@ -1,0 +1,14 @@
+:root{
+    --primary:#ffffff;
+    --secondary:#cecece;
+    --details:#0a7ec2;
+    --buttonSubmit:#496c8a;
+    --buttonSubmitHover:#35546e;
+  }
+  
+  
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }

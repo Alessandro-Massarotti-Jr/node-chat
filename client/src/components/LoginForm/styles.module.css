@@ -1,0 +1,28 @@
+.formContainer{
+    padding: 20px;
+    background-color: var(--secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+}
+
+.loginForm__submitButton{
+    margin-top: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    background-color: var(--buttonSubmit);
+    color:#ffffff;
+    transition: 0.3s ease-in-out;
+}
+
+.loginForm__submitButton:hover{
+    background-color: var(--buttonSubmitHover);
+}

@@ -1,0 +1,32 @@
+.loginForm__inputContainer{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+    position: relative;
+    margin: 15px 0;
+}
+
+.loginForm__inputTypeText{
+    border:none;
+    border-radius: 4px;
+    padding: 10px;
+    outline: 2px solid #272727;
+}
+
+.loginForm__inputTypeTextLabel{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(10px,10px);
+    transform-origin: left;
+    transition: transform 0.25s;
+}
+
+.loginForm__inputContainer.active .loginForm__inputTypeTextLabel{
+    transform: translate(0,-20px) scale(0.8);
+    color: #272727;
+}
+
+.loginForm__inputContainer.active .loginForm__inputTypeText{
+    outline: 2px solid #000000;
+}
