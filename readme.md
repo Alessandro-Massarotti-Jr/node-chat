@@ -19,6 +19,8 @@ Run `npm install` to install the project dependencies, then run `npm start` to s
 
 `npm install socket.io-client`
 
+`npm install react-icons`
+
 
 ## server
 

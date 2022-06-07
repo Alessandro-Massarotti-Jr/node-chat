@@ -84,13 +84,19 @@ User.getAll = async (req, res) => {
     console.log("acessou a rota get all");
 
     try {
-        const users = await prisma.user.findMany();
+        const users = await prisma.user.findMany({
+            select: {
+                email: true,
+                name: true,
+                id:true,
+              },
+        });
 
         async () => {
             await prisma.$disconnect();
         }
 
-        return res.status(201).json({ sucesso: true, message: "usuario Atualizado", data: users });
+        return res.status(201).json({ sucesso: true, message: "List of all users", data: users });
 
     } catch (err) {
         return res.status(400).json({ erro: err });
@@ -146,14 +152,19 @@ User.getOne = async (req, res) => {
     const user = await prisma.user.findFirst({
         where: {
             email: userEmail
-        }
+        },
+        select: {
+            email: true,
+            name: true,
+            id:true,
+          },
     });
 
     if (!user) {
         return res.status(404).json({ msg: "Usuário não encontrado!" });
     }
 
-    res.status(200).json({ user });
+    res.status(200).json({ sucesso: true, message: "User found", data: user });
 }
 
 User.auth = (req, res, next) => {

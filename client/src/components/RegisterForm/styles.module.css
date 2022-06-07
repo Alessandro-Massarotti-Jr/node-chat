@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .loginForm{
@@ -25,4 +26,19 @@
 
 .loginForm__submitButton:hover{
     background-color: var(--buttonSubmitHover);
+}
+
+.loginLink, .loginLink a{
+    text-decoration: none;
+    text-align: end;
+    margin-top: 10px;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    color: var(--text);
+    transition: all 0.3s ease-in-out;
+}
+
+.loginLink:hover, .loginLink a:hover{
+ color: var(--buttonSubmit);
 }

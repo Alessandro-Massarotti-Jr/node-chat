@@ -1,0 +1,6 @@
+.listContainer{
+    background-color: var(--details);
+    min-height: 100%;
+    overflow-y: scroll;
+    width: 25%;
+}
