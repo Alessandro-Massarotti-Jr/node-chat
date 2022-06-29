@@ -25,7 +25,7 @@ io.on("connection", (socket) => {
     socket.on('SendMessage',data=>{
         console.log(`user: ${data.user} message: ${data.message}`)
         socket.broadcast.emit('sendmessage','User: '+data.user+' Message: '+data.message+' ')
-        socket.emit('sendmessage','User: '+data.user+' Message: '+data.message+' ')
+        socket.emit('sendmessage',{user:data.user,message:data.message})
     })
    
 });

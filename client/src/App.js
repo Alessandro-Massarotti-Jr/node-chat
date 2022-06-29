@@ -1,19 +1,10 @@
-import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import Router from "./Router";
 
-import Home from "./pages/Home"
-import Login from "./pages/login"
-import Register from "./pages/register"
 
 function App() {
-  return (<>
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home/>}></Route>
-        <Route path="/login" element={<Login/>}> </Route>
-        <Route path="/register" element={<Register/>}> </Route>
-      </Routes>
-    </Router>
-    </>);
+  return (
+   <Router/>
+    );
 }
 
 export default App;

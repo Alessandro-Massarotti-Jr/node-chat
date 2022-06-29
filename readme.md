@@ -6,6 +6,7 @@ Este projeto esta sendo desenvolvido para ser um chat em tempo real utilizando N
 
 ### server
 
+Run `npm run migrate`
 Run `npm install` to install the project dependencies, then run `npm run dev` to start development server
 
 ### client

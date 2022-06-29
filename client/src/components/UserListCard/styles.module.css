@@ -1,5 +1,42 @@
 .userCard{
-    background-color: #ffffff;
+    background-color: var(--buttonSubmit);
     margin:5px 0px;
     padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.userCard:hover{
+    background-color: var(--buttonSubmitHover);
+}
+
+.userCard__icon{
+    background-color: var(--text);
+    font-size: 30px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid var(--buttonSubmit);
+    margin: 0 10px;
+}
+
+.userCard__text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.userCard__text h3{
+font-weight: bold;
+font-size: 20px;
+}
+
+.userCard__text p{
+ font-size: 12px;
 }

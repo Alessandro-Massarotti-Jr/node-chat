@@ -1,7 +1,7 @@
 import styles from "./styles.module.css"
 import { useState } from "react"
 
-export default function InputText({name,type,required }) {
+export default function InputText({name,type,value,setValue,required }) {
 
     const [inputActive,setInputActive] = useState(" ")
 
@@ -19,7 +19,7 @@ export default function InputText({name,type,required }) {
     return (
         <div className={styles.loginForm__inputContainer + ' ' + styles[inputActive]}>
             <label className={styles.loginForm__inputTypeTextLabel} htmlFor={name}>{name}</label>
-            <input onChange={(event) => { disableInput(event.target.value) }} onClick={() => { setInputActive("active") }} className={styles.loginForm__inputTypeText} name={name} type={type}  required={required}/>
+            <input onChange={(event) => { disableInput(event.target.value); setValue(event.target.value); }} onClick={() => { setInputActive("active") }} className={styles.loginForm__inputTypeText} name={name} type={type}  required={required}/>
         </div>
     )
 }

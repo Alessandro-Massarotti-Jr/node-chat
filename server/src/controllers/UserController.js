@@ -9,6 +9,8 @@ export var User = {}
 
 User.Create = async (req, res) => {
 
+    console.log("acezssou create");
+    
     const salt = await bcrypt.genSalt(12);
     const passwordhash = await bcrypt.hash(req.body.password, salt)
 
@@ -136,11 +138,11 @@ User.login = async (req, res) => {
             return res.status(201).json({ sucesso: true, message: "usuario efetuou login", data: user, token: jwt_token });
 
         } catch (err) {
-            return res.status(400).json({ erroToken: err });
+            return res.status(400).json({ sucesso: false, erro: err.message });
         }
 
     } catch (err) {
-        return res.status(400).json({ erro: err });
+        return res.status(400).json({ sucesso: false, erro: err.message });
     }
 
 }
