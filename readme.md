@@ -13,9 +13,20 @@ Run `npm install` to install the project dependencies, then run `npm run dev` to
 ### client
 
 Run `npm install` to install the project dependencies, then run `npm start` to start development server
-## client
 
-### Tecnologias utilizadas
+## Links uteis:
+
+ - [React Router DOM](https://reactrouter.com/)
+  
+ - [Socket.io](https://socket.io/)
+
+ - [React Icons](https://react-icons.github.io/react-icons/)
+
+ - [prisma](https://www.prisma.io/docs/reference)
+
+ - [express](https://expressjs.com/)
+
+## client
 
 ### comandos utilizados
 
@@ -29,10 +40,6 @@ Run `npm install` to install the project dependencies, then run `npm start` to s
 
 
 ## server
-
-### Tecnologias utilizadas
-
- - [prisma](https://www.prisma.io/docs/reference)
 
 ### comandos utilizados
 
