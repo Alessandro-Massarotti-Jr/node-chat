@@ -6,7 +6,8 @@ Este projeto esta sendo desenvolvido para ser um chat em tempo real utilizando N
 
 ### server
 
-Run `npm run migrate`
+Run `npm run migrate` to create the database tables
+
 Run `npm install` to install the project dependencies, then run `npm run dev` to start development server
 
 ### client
@@ -14,31 +15,41 @@ Run `npm install` to install the project dependencies, then run `npm run dev` to
 Run `npm install` to install the project dependencies, then run `npm start` to start development server
 ## client
 
-`npx create-react-app client`
+### Tecnologias utilizadas
 
-`npm install react-router-dom@6`
+### comandos utilizados
 
-`npm install socket.io-client`
+ - `npx create-react-app client`
 
-`npm install react-icons`
+ - `npm install react-router-dom@6`
+
+ - `npm install socket.io-client`
+
+ - `npm install react-icons`
 
 
 ## server
 
-`npm init`
+### Tecnologias utilizadas
 
-`npm install express`
+ - (prisma)[https://www.prisma.io/docs/reference]
 
-`npm install nodemon`
+### comandos utilizados
 
-`npm install socket.io`
+ - `npm init`
 
-`npm install cors`
+ - `npm install express`
 
-`npm install dotenv`
+ - `npm install nodemon`
 
-`npm install bcrypt`
+ - `npm install socket.io`
 
-`npm install jsonwebtoken`
+ - `npm install cors`
 
-`npm install prisma --save-dev`
+ - `npm install dotenv`
+
+ - `npm install bcrypt`
+
+ - `npm install jsonwebtoken`
+
+ - `npm install prisma --save-dev`
