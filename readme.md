@@ -32,7 +32,7 @@ Run `npm install` to install the project dependencies, then run `npm start` to s
 
 ### Tecnologias utilizadas
 
- - (prisma)[https://www.prisma.io/docs/reference]
+ - [prisma](https://www.prisma.io/docs/reference)
 
 ### comandos utilizados
 
