@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken";
 import 'dotenv/config'
 
 import { User } from "./controllers/UserController.js"
+import { Messages } from "./controllers/MessagesController.js";
 
 const prisma = new PrismaClient()
 
@@ -28,3 +29,10 @@ routes.post("/login", User.login)
 
 // Private Route
 routes.get("/user/:email", User.auth, User.getOne);
+
+// messages
+routes.post("/message/save", Messages.save)
+
+routes.get("/message/getAll",Messages.getAll)
+
+routes.get("/message/getChat/sender/:sender/receiver/:receiver",Messages.getChat)
