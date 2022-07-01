@@ -3,11 +3,14 @@ import InputText from "../Form/InputText/index"
 import { FiArrowRight} from "react-icons/fi"
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from "react";
+import { useUser } from "../../providers/User";
 
 export default function LoginForm() {
 
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
+
+    const { setUser } = useUser();
 
     const navigate = useNavigate();
 
@@ -31,7 +34,17 @@ export default function LoginForm() {
       const data = await request.json();
       console.log(data);
       if(data.sucesso){
-        localStorage.setItem('auth_token', data.token);
+        
+        const userData={
+          id:data.data.id,
+          name:data.data.name,
+          email:data.data.email,
+          auth_token:data.token
+        }
+
+     
+       setUser(userData);
+
         navigate('/',{replace:true});
       }else{
         console.log("error");

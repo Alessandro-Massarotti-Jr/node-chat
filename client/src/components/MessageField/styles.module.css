@@ -9,6 +9,8 @@
     background-color: var(--buttonSubmit);
     padding: 10px;
     border-bottom: 2px solid #232323;
+    display:flex;
+    justify-content:space-between;
 }
 
 .messageField__messagesContainer{
@@ -57,3 +59,22 @@ border-radius: 3px;
     color: #ffffff;
     background-color: var(--details) ;
 }
+
+.logoutButton{
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    margin: 0px 2px;
+    border-radius: 3px;
+    color: var(--details);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .logoutButton:hover{
+      color: #ffffff;
+      background-color: var(--details) ;
+  }
