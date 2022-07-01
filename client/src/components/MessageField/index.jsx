@@ -38,15 +38,20 @@ export default function MessageField() {
 
   useEffect(() => { 
 
-    socket.on('sendmessage', data => {
-      setResponse([]);
-      const messages = data.messages;
-      messages.forEach(message =>{
-        setResponse(current => [...current, <Message key={message.id} receiver={message.receiver} sender={message.sender} message={message.message} />])
-      })  
-    });
-    socket.emit('requestChat', { sender:user.id, receiver:chat.userId, message: message });
-    
+    if(chat.userId){
+      socket.on('sendmessage', data => {
+        setResponse([]);
+        const messages = data.messages;
+        messages.forEach(message =>{
+          setResponse(current => [...current, <Message key={message.id} receiver={message.receiver} sender={message.sender} message={message.message} />])
+        })  
+      });
+     socket.on("hasNewMessages",data=>{
+      socket.emit('requestChat', { sender:user.id, receiver:chat.userId, message: message });
+     })
+      socket.emit('requestChat', { sender:user.id, receiver:chat.userId, message: message });
+    }
+
   }, [socket,chat]);
 
 
@@ -70,17 +75,17 @@ export default function MessageField() {
   return (
     <div className={styles.messageField}>
       <div className={styles.messageField__top}>
-        <h2>{chat ? chat.userName : 'Messages'}</h2>
+        <h2>{chat.userId ? chat.userName : 'Messages'}</h2>
         <button className={styles.logoutButton} onClick={() => { logout() }}><TbLogout /></button>
       </div>
 
-      <div className={styles.messageField__messagesContainer}>
+      <div id="scrollingContainer" className={styles.messageField__messagesContainer}>
 
         {response}
 
       </div>
 
-      {chat &&
+      {chat.userId &&
         <form onSubmit={(event) => { sendMessage(event) }} className={styles.messageField__messageInput}>
           <input type="text" placeholder="message" value={message} onChange={(event) => { setMessage(event.target.value) }} />
           <button type="submit"><BiSend /></button>

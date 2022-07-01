@@ -27,7 +27,6 @@ io.on("connection", (socket) => {
     async function findMessages(data){
         const response = await Messages.socket.getChat(data);
         const allMessages = [];
-        console.log(response.data);
         response.data.forEach((item)=>{
             // socket.broadcast.emit('sendmessage',{ id:item.id, sender:item.sender, receiver:item.receiver, message:item.message})
             allMessages.push({ sender:item.sender, receiver:item.receiver, message:item.message});
@@ -37,13 +36,12 @@ io.on("connection", (socket) => {
 
     async function saveNewMessage(data){
         await Messages.socket.save(data);
-        findMessages(data);
+        socket.broadcast.emit("hasNewMessages",{socketId:socket.id});
+        socket.emit("hasNewMessages",{socketId:socket.id});
     }
 
     socket.on('SendMessage',data=>{
         saveNewMessage(data);
-       
-       
     })
 
     socket.on('requestChat',data =>{

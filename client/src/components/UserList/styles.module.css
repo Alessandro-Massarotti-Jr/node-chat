@@ -1,5 +1,5 @@
 .listContainer{
-    background-color: var(--details);
+    background-color: #202528;
     min-height: 100%;
     overflow-y: scroll;
     width: 25%;

@@ -149,7 +149,7 @@ Messages.socket.getChat = async (data) =>{
                 id: true,
             },
             orderBy: {
-                createdAt: 'asc',
+                createdAt: 'desc',
               },
         });
 
