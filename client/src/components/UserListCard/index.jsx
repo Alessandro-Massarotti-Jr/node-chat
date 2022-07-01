@@ -4,7 +4,7 @@ import { useChat } from "../../providers/Chat";
 
 export default function ({ userData }) {
 
-    const { setChat } = useChat();
+    const { chat, setChat } = useChat();
 
     function handleChatChange(){
         const chatData = {
@@ -14,6 +14,8 @@ export default function ({ userData }) {
         }
         setChat(chatData);
     }
+
+
 
     return (
         <li onClick={handleChatChange} className={styles.userCard}>

@@ -7,6 +7,8 @@ const prisma = new PrismaClient();
 
 export var Messages = {};
 
+Messages.socket = {};
+
 Messages.save = async (req, res) => {
 
     console.log("acezssou create Message");
@@ -97,5 +99,67 @@ Messages.getChat = async (req, res) => {
 
     } catch (err) {
         return res.status(400).json({ sucesso: false, erro: err.message });
+    }
+}
+
+Messages.socket.save = async (data)=>{
+
+    try {
+        const newMessage = await prisma.messages.create({
+            data: {
+                sender: data.sender,
+                receiver: data.receiver,
+                message: data.message,
+            }
+        })
+
+        async () => { await prisma.$disconnect(); }
+
+        return { sucesso: true, message: "mensagem criado", data: newMessage };
+
+    } catch (err) {
+        console.log(err);
+        return { sucesso: false, error:err.message };
+    }
+}
+
+Messages.socket.getChat = async (data) =>{
+
+    const sender = data.sender;
+    const receiver = data.receiver;
+
+    try {
+        const messages = await prisma.messages.findMany({
+            where: {
+                OR: [
+                    {
+                        sender: sender,
+                        receiver: receiver,
+                    },
+                    {
+                        sender: receiver,
+                        receiver: sender
+                    }
+                  ]
+            },
+            select: {
+                sender: true,
+                receiver: true,
+                message: true,
+                id: true,
+            },
+            orderBy: {
+                createdAt: 'asc',
+              },
+        });
+
+        async () => {
+            await prisma.$disconnect();
+        }
+
+        return { sucesso: true, message: "List of all messages", data: messages };
+
+    } catch (err) {
+        return { sucesso: false, erro: err.message };
     }
 }
