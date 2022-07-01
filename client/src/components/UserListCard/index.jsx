@@ -2,7 +2,7 @@ import styles from "./styles.module.css"
 import { ImUser } from "react-icons/im"
 import { useChat } from "../../providers/Chat";
 
-export default function ({ userData }) {
+export default function ({ userData, setNav }) {
 
     const { chat, setChat } = useChat();
 
@@ -18,7 +18,7 @@ export default function ({ userData }) {
 
 
     return (
-        <li onClick={handleChatChange} className={styles.userCard}>
+        <li onClick={()=>{handleChatChange(); setNav(false);}} className={styles.userCard}>
             <div className={styles.userCard__icon}>
                 <ImUser/>
             </div>

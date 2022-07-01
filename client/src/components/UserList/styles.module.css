@@ -4,3 +4,45 @@
     overflow-y: scroll;
     width: 25%;
 }
+
+.listContainer__mobile{
+display:none;
+}
+
+.listContainer__mobile__control{
+        background-color:#000000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+        padding: 0 5px;
+        font-size: 16px;
+        font-weight: bolder;
+        
+}
+
+
+@media(max-width:767px){
+    .listContainer{
+           display:none;
+    }
+    
+    .listContainer__mobile{
+        background-color: #202528;
+        min-height: 100%;
+        overflow-y: scroll;
+        display:flex;
+        justify-content: space-between;
+        position: fixed;
+    }
+    .listContainer__mobile ul{
+        flex:1;
+        min-width: 300px;
+        display: none;
+    }
+    .listContainer__mobile.active ul{
+        flex:1;
+        display: block;
+    }
+
+}

@@ -19,6 +19,8 @@
     height: 100%;
     background: url('../../assets/img/chat_bg.jpg');
     overflow-y: scroll;
+    display:flex;
+    flex-direction: column-reverse;
 }
 
 
@@ -78,3 +80,9 @@ border-radius: 3px;
       color: #ffffff;
       background-color: var(--details) ;
   }
+
+@media(max-width:767px){
+    .messageField{
+        margin-left:30px
+    }
+}
