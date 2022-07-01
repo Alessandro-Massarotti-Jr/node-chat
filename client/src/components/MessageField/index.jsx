@@ -44,8 +44,13 @@ export default function MessageField() {
 
 
 
-  function sendMessage() {
+  function sendMessage(event) {
+    event.preventDefault();
+    if(message == null || message == undefined || message ==''){
+      return
+    }
     socket.emit('SendMessage', { sender:user.id, receiver:chat.userId, message: message })
+    setMessage('');
   }
 
   return (
@@ -60,10 +65,10 @@ export default function MessageField() {
 
       </div>
       {chat &&
-        <div className={styles.messageField__messageInput}>
-          <input type="text" placeholder="message" onChange={(event) => { setMessage(event.target.value) }} />
-          <button onClick={() => { sendMessage() }}><BiSend /></button>
-        </div>
+        <form onSubmit={(event) => { sendMessage(event) }} className={styles.messageField__messageInput}>
+          <input type="text" placeholder="message" value={message} onChange={(event) => { setMessage(event.target.value) }} />
+          <button type="submit"><BiSend /></button>
+        </form>
       }
 
     </div>
