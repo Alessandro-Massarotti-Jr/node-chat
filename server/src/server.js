@@ -23,9 +23,8 @@ io.on("connection", (socket) => {
     console.log(`socket conectado: ${socket.id}`);
 
     socket.on('SendMessage',data=>{
-        console.log(`user: ${data.user} message: ${data.message}`)
-        socket.broadcast.emit('sendmessage','User: '+data.user+' Message: '+data.message+' ')
-        socket.emit('sendmessage',{user:data.user,message:data.message})
+        socket.broadcast.emit('sendmessage',{ sender:data.sender, receiver:data.receiver, message:data.message})
+        socket.emit('sendmessage',{ sender:data.sender, receiver:data.receiver, message:data.message})
     })
    
 });

@@ -36,7 +36,7 @@ export default function MessageField() {
 
     socket.on('sendmessage', message => {
       console.log(message);
-      setResponse(current => [...current, <Message user={message.user} message={message.message} />])
+      setResponse(current => [...current, <Message receiver={message.receiver} sender={message.sender} message={message.message} />])
     });
 
   }, [socket]);
@@ -45,7 +45,7 @@ export default function MessageField() {
 
 
   function sendMessage() {
-    socket.emit('SendMessage', { user: user.name, message: message })
+    socket.emit('SendMessage', { sender:user.id, receiver:chat.userId, message: message })
   }
 
   return (

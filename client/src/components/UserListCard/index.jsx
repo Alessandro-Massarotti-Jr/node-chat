@@ -9,7 +9,7 @@ export default function ({ userData }) {
     function handleChatChange(){
         const chatData = {
             userName:userData.name,
-            userId:userData.Id,
+            userId:userData.id,
             userEmail:userData.email
         }
         setChat(chatData);
