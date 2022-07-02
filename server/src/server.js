@@ -3,7 +3,7 @@ import { routes } from "./routes.js"
 import cors from "cors";
 
 import { Server } from "socket.io"
-import http from "http"
+
 
 import { Messages } from "./controllers/MessagesController.js";
 
@@ -12,18 +12,13 @@ const app = express();
 app.use(cors({origin: `${process.env.CORS_DOMAINS}`}));
 app.use(express.json());
 
-app.all('/*', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    next();
- });
 
 const server = app.listen( process.env.PORT, () => { 
     console.log("HTTP Server runing in port: "+process.env.PORT) 
 });
 
 const io = new Server(server,{cors: {
-    origin: `*`,
+    origin: `${process.env.CORS_DOMAINS}`,
   }
 });
 
