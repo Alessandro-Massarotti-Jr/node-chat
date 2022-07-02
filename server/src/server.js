@@ -12,13 +12,14 @@ import { Messages } from "./controllers/MessagesController.js";
 const port = process.env.PORT
 const app = express();
 const server = http.createServer(app)
-const io = new Server(server,{cors: {origin: "*"}});
+const io = new Server(server,{cors: {origin: "*:*"}});
 
 
 
 app.use(cors({origin: '*',}));
 app.use(express.json());
 app.use(routes);
+app.all()
 
 
 io.on("connection", (socket) => {
