@@ -9,18 +9,14 @@ import { Messages } from "./controllers/MessagesController.js";
 
 
 const app = express();
-const server = http.createServer(app)
-const io = new Server(server,{cors: {
-    allowRequest: (req, callback) => {
-        const noOriginHeader = req.headers.origin === undefined;
-        callback(null, noOriginHeader);
-      }
-}});
-
-
-
 app.use(cors({origin: `${process.env.CORS_DOMAINS}`,}));
 app.use(express.json());
+const server = http.createServer(app)
+const io = new Server(server,{cors: {origin: `${process.env.CORS_DOMAINS}`}});
+
+
+
+
 app.use(routes);
 
 
