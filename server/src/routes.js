@@ -13,7 +13,6 @@ export const routes = express.Router();
 
 
 routes.get("/", async (req, res) => {
-  console.log('Ola mundo');
   return res.status(201).json({ ola: "mundo" });
 })
 

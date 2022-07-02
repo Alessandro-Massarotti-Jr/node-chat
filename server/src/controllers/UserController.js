@@ -9,7 +9,7 @@ export var User = {}
 
 User.Create = async (req, res) => {
 
-    console.log("acezssou create");
+ 
     
     const salt = await bcrypt.genSalt(12);
     const passwordhash = await bcrypt.hash(req.body.password, salt)
@@ -28,7 +28,7 @@ User.Create = async (req, res) => {
         return res.status(201).json({ sucesso: true, message: "usuario criado", data: newUser });
 
     } catch (err) {
-        console.log(err);
+        return res.status(500).json({ sucesso: false, error:err.message});
     }
 
 }
@@ -47,7 +47,6 @@ User.Delete = async (req, res) => {
         async () => {
             await prisma.$disconnect();
         }
-        console.log(user);
         return res.status(201).json({ sucesso: true, message: "usuario Deletado com sucesso!", data: user });
 
     } catch (err) {
@@ -83,7 +82,6 @@ User.Update = async (req, res) => {
 
 User.getAll = async (req, res) => {
 
-    console.log("acessou a rota get all");
 
     try {
         const users = await prisma.user.findMany({
@@ -171,9 +169,6 @@ User.getOne = async (req, res) => {
 
 User.auth = (req, res, next) => {
     const authHeader = req.headers["authorization"];
-
-    console.log(authHeader);
-
 
     try {
         const secret = process.env.JWT_SECRET;
