@@ -6,13 +6,21 @@ Este projeto esta sendo desenvolvido para ser um chat em tempo real utilizando N
 
 ### server
 
+Fill the `.env` file based on `.env.example`
+
+Run `npm install` to install the project dependencies
+
 Run `npm run migrate` to create the database tables
 
-Run `npm install` to install the project dependencies, then run `npm run dev` to start development server
+Run `npm run dev` to start development server
 
 ### client
 
-Run `npm install` to install the project dependencies, then run `npm start` to start development server
+Fill the `.env` file based on `.env.example`
+
+Run `npm install` to install the project dependencies
+
+Run `npm start` to start development server
 
 ## Links uteis:
 
