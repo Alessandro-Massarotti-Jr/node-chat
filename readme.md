@@ -33,6 +33,14 @@ Run `npm start` to start development server
  - [prisma](https://www.prisma.io/docs/reference)
 
  - [express](https://expressjs.com/)
+  
+ - [cors](https://expressjs.com/en/resources/middleware/cors.html)
+
+ - [bcrypt](https://www.npmjs.com/package/bcrypt)
+  
+ - [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
+
+ - [dotenv](https://www.npmjs.com/package/dotenv)
 
 ## client
 
