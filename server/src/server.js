@@ -12,6 +12,11 @@ const app = express();
 app.use(cors({origin: `${process.env.CORS_DOMAINS}`}));
 app.use(express.json());
 
+app.all('/*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+ });
 
 const server = app.listen( process.env.PORT, () => { 
     console.log("HTTP Server runing in port: "+process.env.PORT) 
@@ -21,6 +26,8 @@ const io = new Server(server,{cors: {
     origin: `*`,
   }
 });
+
+
 
 
 
