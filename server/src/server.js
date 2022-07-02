@@ -9,7 +9,7 @@ import { Messages } from "./controllers/MessagesController.js";
 
 
 const app = express();
-app.use(cors({origin: `${process.env.CORS_DOMAINS}`}));
+app.use(cors({origin: `${process.env.CORS_DOMAIN}`}));
 app.use(express.json());
 
 const server = http.createServer(app)
@@ -17,15 +17,11 @@ server.listen( process.env.PORT, () => {
     console.log("HTTP Server runing in port: "+process.env.PORT) 
 });
 
-const io = new Server(server,{cors: {
-    origin: `${process.env.CORS_DOMAINS}`,
+export const io = new Server(server,{cors: {
+    origin: `${process.env.CORS_DOMAIN}`,
   }});
 
-
-
-
 app.use(routes);
-
 
 io.on("connection", (socket) => {
     console.log(`socket conectado: ${socket.id}`);
@@ -56,8 +52,3 @@ io.on("connection", (socket) => {
     })
    
 });
-
-
-
-
-

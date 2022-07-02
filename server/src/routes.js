@@ -1,13 +1,10 @@
 import express from "express"
-import { PrismaClient } from "@prisma/client"
-import bcrypt from "bcrypt"
-import jwt from "jsonwebtoken";
 import 'dotenv/config'
 
 import { User } from "./controllers/UserController.js"
 import { Messages } from "./controllers/MessagesController.js";
 
-const prisma = new PrismaClient()
+
 
 export const routes = express.Router();
 
