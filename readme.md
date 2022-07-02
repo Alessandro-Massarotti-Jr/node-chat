@@ -30,17 +30,17 @@ Run `npm start` to start development server
 
  - [React Icons](https://react-icons.github.io/react-icons/)
 
- - [prisma](https://www.prisma.io/docs/reference)
+ - [Prisma](https://www.prisma.io/docs/reference)
 
- - [express](https://expressjs.com/)
+ - [Express](https://expressjs.com/)
   
- - [cors](https://expressjs.com/en/resources/middleware/cors.html)
+ - [Cors](https://expressjs.com/en/resources/middleware/cors.html)
 
- - [bcrypt](https://www.npmjs.com/package/bcrypt)
+ - [Bcrypt](https://www.npmjs.com/package/bcrypt)
   
- - [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
+ - [JsonWebToken](https://www.npmjs.com/package/jsonwebtoken)
 
- - [dotenv](https://www.npmjs.com/package/dotenv)
+ - [Dotenv](https://www.npmjs.com/package/dotenv)
 
 ## client
 
