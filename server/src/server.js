@@ -1,15 +1,14 @@
 import express from "express";
 import { routes } from "./routes.js"
 import cors from "cors";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken"
+
 import 'dotenv/config'
 import { Server } from "socket.io"
 import http from "http"
 
 import { Messages } from "./controllers/MessagesController.js";
 
-const port = process.env.PORT
+ 
 const app = express();
 const server = http.createServer(app)
 const io = new Server(server,{cors: {origin: "*:*"}});
@@ -52,8 +51,8 @@ io.on("connection", (socket) => {
    
 });
 
-server.listen( port, () => { 
-    console.log("HTTP Server runing in port: "+port) 
+server.listen( process.env.PORT, () => { 
+    console.log("HTTP Server runing in port: "+process.env.PORT) 
 });
 
 
