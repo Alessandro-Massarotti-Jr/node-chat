@@ -33,10 +33,6 @@ export default function MessageField() {
   }
 
 
-
-  let flag = true;
-
-
   useEffect(() => { 
 
     if(chat.userId){
@@ -63,16 +59,10 @@ export default function MessageField() {
       }
      
      })
-     if(flag){
-      socket.emit('requestChat', { sender:user.id, receiver:chat.userId, message: message });
-      flag=false
-     }
-    
+      socket.emit('requestChat', { sender:user.id, receiver:chat.userId, message: message });   
     }
     
   }, [socket,chat]);
-
-
 
 
 
