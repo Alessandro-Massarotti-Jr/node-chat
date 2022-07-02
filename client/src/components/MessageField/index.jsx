@@ -12,7 +12,7 @@ import { useChat } from "../../providers/Chat";
 
 
 const apiUrl = process.env.REACT_APP_API_URL;
-const socket = io(apiUrl, {transports: ['websocket']});
+const socket = io(apiUrl);
 
 export default function MessageField() {
 
