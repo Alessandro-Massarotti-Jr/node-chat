@@ -42,6 +42,28 @@ Run `npm start` to start development server
 
  - [Dotenv](https://www.npmjs.com/package/dotenv)
 
+
+## Demonstração
+
+#### Link: 
+
+### Desktop
+
+<div style="display:flex" align="center">
+    <img width="40%" src="readmeImages/nodeChatHome.png" alt="Desktop">
+    <img width="40%" src="readmeImages/nodeChatLogin.png" alt="Desktop">
+</div>
+
+### Mobile
+
+<div style="display:flex;" align="center">
+  <img width="20%" src="readmeImages/nodeChatHomeMobile.png" alt="Mobile">
+  <img width="20%" src="readmeImages/nodeChatHomeMobileNavOpen.png" alt="Mobile">
+  <img width="20%" src="readmeImages/nodeChatLoginMobile.png" alt="Mobile">
+</div>
+
+<br>
+
 ## client
 
 ### comandos utilizados
