@@ -11,10 +11,16 @@ import { Messages } from "./controllers/MessagesController.js";
 const app = express();
 app.use(cors({origin: `${process.env.CORS_DOMAINS}`}));
 app.use(express.json());
-const server = http.createServer(app)
+
+
+const server = app.listen( process.env.PORT, () => { 
+    console.log("HTTP Server runing in port: "+process.env.PORT) 
+});
+
 const io = new Server(server,{cors: {
-    origin: `${process.env.CORS_DOMAINS}`,
-  }});
+    origin: `*`,
+  }
+});
 
 
 
@@ -52,9 +58,6 @@ io.on("connection", (socket) => {
    
 });
 
-server.listen( process.env.PORT, () => { 
-    console.log("HTTP Server runing in port: "+process.env.PORT) 
-});
 
 
 
