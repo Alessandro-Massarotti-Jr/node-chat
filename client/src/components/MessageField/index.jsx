@@ -42,12 +42,12 @@ export default function MessageField() {
     if(chat.userId){
       socket.on('sendmessage', data => {
         const messages = data.messages;
-        if(messages[0].sender == user.id && messages[0].receiver == chat.userId){
+        if(messages[0].sender === user.id && messages[0].receiver === chat.userId){
           setResponse([]);
           messages.forEach(message =>{
             setResponse(current => [...current, <Message key={message.id} receiver={message.receiver} sender={message.sender} message={message.message} />])
           }) 
-        }else if(messages[0].receiver == user.id && messages[0].sender == chat.userId){
+        }else if(messages[0].receiver === user.id && messages[0].sender === chat.userId){
           setResponse([]);
           messages.forEach(message =>{
             setResponse(current => [...current, <Message key={message.id} receiver={message.receiver} sender={message.sender} message={message.message} />])
@@ -56,9 +56,9 @@ export default function MessageField() {
       });
      socket.on("hasNewMessages",data=>{
 
-      if(data.sender == user.id && data.receiver == chat.userId){
+      if(data.sender === user.id && data.receiver === chat.userId){
         socket.emit('requestChat', { sender:user.id, receiver:chat.userId, message: message });
-      }else if(data.receiver == user.id && data.sender == chat.userId){
+      }else if(data.receiver === user.id && data.sender === chat.userId){
         socket.emit('requestChat', { sender:user.id, receiver:chat.userId, message: message });
       }
      
