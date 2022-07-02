@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import { useUser } from "../../providers/User";
 import Loading from "../Loading";
+import AlertModal from "../Layout/AlertModal";
 
 export default function LoginForm() {
 
@@ -12,6 +13,7 @@ export default function LoginForm() {
   const [password, setPassword] = useState('');
 
   const [loading, setLoading] = useState(false);
+  const [alertModal,setAlertModal] = useState(false);
 
   const { setUser } = useUser();
 
@@ -36,7 +38,7 @@ export default function LoginForm() {
     })
     const data = await request.json();
 
-    if (data.sucesso) {
+    if (data.success) {
 
       const userData = {
         id: data.data.id,
@@ -51,13 +53,18 @@ export default function LoginForm() {
       setLoading(false);
       navigate('/', { replace: true });
     } else {
-      console.log("error");
+      setAlertModal(true);
+      setLoading(false);
+      setTimeout(()=>{
+        setAlertModal(false);
+      },3000)
     }
 
   }
 
   return (
     <div className={styles.formContainer}>
+      {alertModal && <AlertModal title="Erro" text="Login ou senha Invalidos"/>}
       {loading && <Loading />}
       <form onSubmit={(event) => { login(event) }} className={styles.loginForm} method="POST">
         <InputText name="Email" type="email" value={email} setValue={setEmail} required={true} />

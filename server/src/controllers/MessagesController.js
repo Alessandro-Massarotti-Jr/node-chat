@@ -22,10 +22,10 @@ Messages.save = async (req, res) => {
 
         async () => { await prisma.$disconnect(); }
 
-        return res.status(201).json({ sucesso: true, message: "mensagem criado", data: newMessage });
+        return res.status(201).json({ success: true, message: "mensagem criado", data: newMessage });
 
     } catch (err) {
-        return res.status(400).json({ sucesso: false, error: err.message });
+        return res.status(400).json({ success: false, error: err.message });
     }
 
 }
@@ -45,10 +45,10 @@ Messages.getAll = async (req, res) => {
             await prisma.$disconnect();
         }
 
-        return res.status(201).json({ sucesso: true, message: "List of all messages", data: messages });
+        return res.status(201).json({ success: true, message: "List of all messages", data: messages });
 
     } catch (err) {
-        return res.status(400).json({ sucesso: false, erro: err.message });
+        return res.status(400).json({ success: false, erro: err.message });
     }
 }
 
@@ -86,10 +86,10 @@ Messages.getChat = async (req, res) => {
             await prisma.$disconnect();
         }
 
-        return res.status(201).json({ sucesso: true, message: "List of all messages", data: messages });
+        return res.status(201).json({ success: true, message: "List of all messages", data: messages });
 
     } catch (err) {
-        return res.status(400).json({ sucesso: false, erro: err.message });
+        return res.status(400).json({ success: false, erro: err.message });
     }
 }
 
@@ -106,10 +106,10 @@ Messages.socket.save = async (data)=>{
 
         async () => { await prisma.$disconnect(); }
 
-        return { sucesso: true, message: "mensagem criado", data: newMessage };
+        return { success: true, message: "mensagem criado", data: newMessage };
 
     } catch (err) {
-        return { sucesso: false, error:err.message };
+        return { success: false, error:err.message };
     }
 }
 
@@ -147,9 +147,9 @@ Messages.socket.getChat = async (data) =>{
             await prisma.$disconnect();
         }
 
-        return { sucesso: true, message: "List of all messages", data: messages };
+        return { success: true, message: "List of all messages", data: messages };
 
     } catch (err) {
-        return { sucesso: false, erro: err.message };
+        return { success: false, erro: err.message };
     }
 }

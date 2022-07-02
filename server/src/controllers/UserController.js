@@ -25,10 +25,10 @@ User.Create = async (req, res) => {
 
         async () => { await prisma.$disconnect(); }
 
-        return res.status(201).json({ sucesso: true, message: "usuario criado", data: newUser });
+        return res.status(201).json({ success: true, message: "usuario criado", data: newUser });
 
     } catch (err) {
-        return res.status(500).json({ sucesso: false, error:err.message});
+        return res.status(500).json({ success: false, error:err.message});
     }
 
 }
@@ -47,7 +47,7 @@ User.Delete = async (req, res) => {
         async () => {
             await prisma.$disconnect();
         }
-        return res.status(201).json({ sucesso: true, message: "usuario Deletado com sucesso!", data: user });
+        return res.status(201).json({ success: true, message: "usuario Deletado com success!", data: user });
 
     } catch (err) {
         return res.status(400).json({ erro: err });
@@ -73,7 +73,7 @@ User.Update = async (req, res) => {
             await prisma.$disconnect();
         }
 
-        return res.status(201).json({ sucesso: true, message: "usuario Atualizado", data: user });
+        return res.status(201).json({ success: true, message: "usuario Atualizado", data: user });
 
     } catch (err) {
         return res.status(400).json({ erro: err });
@@ -96,7 +96,7 @@ User.getAll = async (req, res) => {
             await prisma.$disconnect();
         }
 
-        return res.status(201).json({ sucesso: true, message: "List of all users", data: users });
+        return res.status(201).json({ success: true, message: "List of all users", data: users });
 
     } catch (err) {
         return res.status(400).json({ erro: err });
@@ -133,14 +133,14 @@ User.login = async (req, res) => {
                 await prisma.$disconnect();
             }
 
-            return res.status(201).json({ sucesso: true, message: "usuario efetuou login", data: user, token: jwt_token });
+            return res.status(201).json({ success: true, message: "usuario efetuou login", data: user, token: jwt_token });
 
         } catch (err) {
-            return res.status(400).json({ sucesso: false, erro: err.message });
+            return res.status(400).json({ success: false, erro: err.message });
         }
 
     } catch (err) {
-        return res.status(400).json({ sucesso: false, erro: err.message });
+        return res.status(400).json({ success: false, erro: err.message });
     }
 
 }
@@ -164,7 +164,7 @@ User.getOne = async (req, res) => {
         return res.status(404).json({ msg: "Usuário não encontrado!" });
     }
 
-    res.status(200).json({ sucesso: true, message: "User found", data: user });
+    res.status(200).json({ success: true, message: "User found", data: user });
 }
 
 User.auth = (req, res, next) => {
