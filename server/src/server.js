@@ -36,8 +36,8 @@ io.on("connection", (socket) => {
 
     async function saveNewMessage(data){
         await Messages.socket.save(data);
-        socket.broadcast.emit("hasNewMessages",{socketId:socket.id});
-        socket.emit("hasNewMessages",{socketId:socket.id});
+        socket.broadcast.emit("hasNewMessages",data);
+        socket.emit("hasNewMessages",data);
     }
 
     socket.on('SendMessage',data=>{

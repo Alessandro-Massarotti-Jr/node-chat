@@ -34,25 +34,44 @@ export default function MessageField() {
 
 
 
+  let flag = true;
 
 
   useEffect(() => { 
 
     if(chat.userId){
       socket.on('sendmessage', data => {
-        setResponse([]);
         const messages = data.messages;
-        messages.forEach(message =>{
-          setResponse(current => [...current, <Message key={message.id} receiver={message.receiver} sender={message.sender} message={message.message} />])
-        })  
+        if(messages[0].sender == user.id && messages[0].receiver == chat.userId){
+          setResponse([]);
+          messages.forEach(message =>{
+            setResponse(current => [...current, <Message key={message.id} receiver={message.receiver} sender={message.sender} message={message.message} />])
+          }) 
+        }else if(messages[0].receiver == user.id && messages[0].sender == chat.userId){
+          setResponse([]);
+          messages.forEach(message =>{
+            setResponse(current => [...current, <Message key={message.id} receiver={message.receiver} sender={message.sender} message={message.message} />])
+          }) 
+        }
       });
      socket.on("hasNewMessages",data=>{
-      socket.emit('requestChat', { sender:user.id, receiver:chat.userId, message: message });
-     })
-      socket.emit('requestChat', { sender:user.id, receiver:chat.userId, message: message });
-    }
 
+      if(data.sender == user.id && data.receiver == chat.userId){
+        socket.emit('requestChat', { sender:user.id, receiver:chat.userId, message: message });
+      }else if(data.receiver == user.id && data.sender == chat.userId){
+        socket.emit('requestChat', { sender:user.id, receiver:chat.userId, message: message });
+      }
+     
+     })
+     if(flag){
+      socket.emit('requestChat', { sender:user.id, receiver:chat.userId, message: message });
+      flag=false
+     }
+    
+    }
+    
   }, [socket,chat]);
+
 
 
 
@@ -65,7 +84,6 @@ export default function MessageField() {
     }
     socket.emit('SendMessage', { sender:user.id, receiver:chat.userId, message: message });
     setMessage('');
-    setResponse([]);
     
   }
 
