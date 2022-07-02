@@ -3,7 +3,7 @@ import { routes } from "./routes.js"
 import cors from "cors";
 
 import { Server } from "socket.io"
-
+import http from "http"
 
 import { Messages } from "./controllers/MessagesController.js";
 
@@ -12,17 +12,14 @@ const app = express();
 app.use(cors({origin: `${process.env.CORS_DOMAINS}`}));
 app.use(express.json());
 
-
-const server = app.listen( process.env.PORT, () => { 
+const server = http.createServer(app)
+server.listen( process.env.PORT, () => { 
     console.log("HTTP Server runing in port: "+process.env.PORT) 
 });
 
 const io = new Server(server,{cors: {
     origin: `${process.env.CORS_DOMAINS}`,
-  }
-});
-
-
+  }});
 
 
 

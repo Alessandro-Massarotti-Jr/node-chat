@@ -66,8 +66,6 @@ Run `npm start` to start development server
 
 ## Demonstração
 
-#### Link: https://node-chat-delta.vercel.app/
-
 ### Desktop
 
 <div style="display:flex" align="center">
