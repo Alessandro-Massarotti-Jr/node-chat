@@ -1,6 +1,27 @@
 # Node Chat
 
+<p>
+  <img src="https://img.shields.io/badge/made%20by-Alessandro%20Massarotti%20Jr-0a7ec2?style=flat-square">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/alessandro-massarotti-Jr/node-chat?color=0a7ec2&style=flat-square">
+  <img alt="GitHub Top Language" src="https://img.shields.io/github/languages/top/alessandro-massarotti-Jr/node-chat?color=0a7ec2&style=flat-square">
+</p>
+
+
 Este projeto esta sendo desenvolvido para ser um chat em tempo real utilizando Node.js para o servidor React.js para o cliente e a biblioteca Socket.IO para fazer a comunicação entre os dois por meio de web sockets.
+
+## Sumario
+
+ - [Config](#config)
+   - [server](#server)
+   - [client](#client)
+ - [Links Uteis](#links-uteis)
+ - [Demonstração](#demonstração)
+   - [Desktop](#desktop)
+   - [mobile](#mobile)
+ - [Client](#client-1)
+   - [Comandos utilizados](#comandos-utilizados)
+ - [Server](#server-1)
+   - [Comandos utilizados](#comandos-utilizados-1)
 
 ## Config
 
@@ -66,6 +87,8 @@ Run `npm start` to start development server
 
 ## client
 
+Front-end do projeto desenvolvido utilizando a biblioteca `React`, Utilizando o `React Router Dom` para a criação de rotas da aplicação e o `Socket.IO client` para realizar a comunicação com o servidor por meio de WebSockets
+
 ### comandos utilizados
 
  - `npx create-react-app client`
@@ -78,6 +101,8 @@ Run `npm start` to start development server
 
 
 ## server
+
+Back-end do projeto desenvolvido com `Node.js`, Utilizando `Express` para fazer um controle de requisições http e o `Socket.IO` para fazer a comunicação de client e server por meio de WebSockets.
 
 ### comandos utilizados
 
@@ -98,3 +123,9 @@ Run `npm start` to start development server
  - `npm install jsonwebtoken`
 
  - `npm install prisma --save-dev`
+
+<br>
+
+---
+
+Desenvolvido Por [Alessandro Massarotti Jr](https://github.com/alessandro-massarotti-jr) 🤖
